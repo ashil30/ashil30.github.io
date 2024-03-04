@@ -12,6 +12,13 @@
         // Load the CSV data
         d3.csv('data.csv').then(function(data) {
             // Parse the data to convert strings to numbers and extract year keys
+            data.forEach(row => {
+        for(let propName in row) {
+            if (!isNaN(+row[propName])) {
+                row[propName] = +row[propName];
+            }
+        }
+    });
             const years = data.columns.slice(1).map(d => d.trim()); // Extract years from column headers
             data.forEach(d => {
                 years.forEach(year => {
