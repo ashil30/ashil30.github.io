@@ -36,7 +36,7 @@
 
         const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-        d3.csv("data.csv", d => {
+        d3.csv("https://ashil30.github.io/data.csv", d => {
             d['2011.00'] = +d['Unnamed: 1'];
             d['2012.00'] = +d['Unnamed: 2'];
             d['2013.00'] = +d['Unnamed: 3'];
