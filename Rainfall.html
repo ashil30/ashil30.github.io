@@ -6,146 +6,174 @@
     <body>
         <h1>Rainfall Data Comparison: 2011-2018 Dorchester</h1>
         <svg width="1000" height="600" xmlns="http://www.w3.org/2000/svg">
-            <line x1="60" y1="500" x2="980" y2="500" stroke="black"/>
-            <line x1="60" y1="50" x2="60" y2="500" stroke="black"/>
-            <text x="60.0" y="520" text-anchor="middle" font-family="Arial" font-size="12">Jan</text>
-            <text x="143.636" y="520" text-anchor="middle" font-family="Arial" font-size="12">Feb</text>
-            <text x="227.273" y="520" text-anchor="middle" font-family="Arial" font-size="12">Mar</text>
-            <text x="310.909" y="520" text-anchor="middle" font-family="Arial" font-size="12">Apr</text>
-            <text x="394.545" y="520" text-anchor="middle" font-family="Arial" font-size="12">May</text>
-            <text x="478.182" y="520" text-anchor="middle" font-family="Arial" font-size="12">Jun</text>
-            <text x="561.818" y="520" text-anchor="middle" font-family="Arial" font-size="12">Jul</text>
-            <text x="645.454" y="520" text-anchor="middle" font-family="Arial" font-size="12">Aug</text>
-            <text x="729.090" y="520" text-anchor="middle" font-family="Arial" font-size="12">Sep</text>
-            <text x="812.727" y="520" text-anchor="middle" font-family="Arial" font-size="12">Oct</text>
-            <text x="896.364" y="520" text-anchor="middle" font-family="Arial" font-size="12">Nov</text>
-            <text x="980.0" y="520" text-anchor="middle" font-family="Arial" font-size="12">Dec</text>
-            <text x="50" y="500.0" text-anchor="end" font-family="Arial" font-size="12">0.00 in</text>
-            <text x="50" y="410.0" text-anchor="end" font-family="Arial" font-size="12">2.31 in</text>
-            <text x="50" y="320.0" text-anchor="end" font-family="Arial" font-size="12">4.62 in</text>
-            <text x="50" y="230.0" text-anchor="end" font-family="Arial" font-size="12">6.93 in</text>
-            <text x="50" y="140.0" text-anchor="end" font-family="Arial" font-size="12">9.24 in</text>
-            <text x="50" y="50.0" text-anchor="end" font-family="Arial" font-size="12">11.55 in</text>
+             <style>
+            .axis { stroke: black; }
+            .label { font-family: Arial; font-size: 12px; }
+            .data-circle { r: 4; }
+        </style>
+
+        <!-- Axes -->
+        <line x1="60" y1="500" x2="980" y2="500" class="axis"/>
+        <line x1="60" y1="50" x2="60" y2="500" class="axis"/>
+        <!-- Labels and markers -->
+        <g class="label">
+            <text x="60.0" y="520" text-anchor="middle">Jan</text>
+            <text x="143.636" y="520" text-anchor="middle">Feb</text>
+            <text x="227.273" y="520" text-anchor="middle">Mar</text>
+            <text x="310.909" y="520" text-anchor="middle" >Apr</text>
+            <text x="394.545" y="520" text-anchor="middle">May</text>
+            <text x="478.182" y="520" text-anchor="middle">Jun</text>
+            <text x="561.818" y="520" text-anchor="middle">Jul</text>
+            <text x="645.454" y="520" text-anchor="middle">Aug</text>
+            <text x="729.090" y="520" text-anchor="middle">Sep</text>
+            <text x="812.727" y="520" text-anchor="middle">Oct</text>
+            <text x="896.364" y="520" text-anchor="middle">Nov</text>
+            <text x="980.0" y="520" text-anchor="middle">Dec</text>
+            <!-- Y-axis labels -->
+            <text x="50" y="500.0" text-anchor="end">0.00</text>
+            <text x="50" y="410.0" text-anchor="end">2.31</text>
+            <text x="50" y="320.0" text-anchor="end">4.62</text>
+            <text x="50" y="230.0" text-anchor="end">6.93</text>
+            <text x="50" y="140.0" text-anchor="end">9.24</text>
+            <text x="50" y="50.0" text-anchor="end">11.55</text>
+        </g>
+            
             <path d="M60.0,419.740 L143.636,343.766 L227.272,427.922 L310.909,323.116 L394.545,369.090 L478.181,313.766 L561.818,400.259 L645.454,136.883 L729.091,298.181 L812.727,113.506 L896.363,319.220 L980.0,351.948 " stroke="#1b9e77" fill="none"/>
-            <circle cx="60.0" cy="419.7402597402597" r="4" fill="#1b9e77"/>
-            <circle cx="143.636" cy="343.766" r="4" fill="#1b9e77"/>
-            <circle cx="227.272" cy="427.922" r="4" fill="#1b9e77"/>
-            <circle cx="310.909" cy="323.116" r="4" fill="#1b9e77"/>
-            <circle cx="394.545" cy="369.090" r="4" fill="#1b9e77"/>
-            <circle cx="478.181" cy="313.766" r="4" fill="#1b9e77"/>
-            <circle cx="561.818" cy="400.259" r="4" fill="#1b9e77"/>
-            <circle cx="645.454" cy="136.883" r="4" fill="#1b9e77"/>
-            <circle cx="729.090" cy="298.181" r="4" fill="#1b9e77"/>
-            <circle cx="812.727" cy="113.506" r="4" fill="#1b9e77"/>
-            <circle cx="896.363" cy="319.220" r="4" fill="#1b9e77"/>
-            <circle cx="980.0" cy="351.948" r="4" fill="#1b9e77"/>
+            
+            <g fill="#1b9e77">
+                <circle cx="60.0" cy="419.740" class="data-circle"/>
+                <circle cx="143.636" cy="343.766" class="data-circle"/>
+                <circle cx="227.272" cy="427.922" class="data-circle"/>
+                <circle cx="310.909" cy="323.116" class="data-circle"/>
+                <circle cx="394.545" cy="369.090" class="data-circle"/>
+                <circle cx="478.181" cy="313.766" class="data-circle"/>
+                <circle cx="561.818" cy="400.259" class="data-circle"/>
+                <circle cx="645.454" cy="136.883" class="data-circle"/>
+                <circle cx="729.090" cy="298.181" class="data-circle"/>
+                <circle cx="812.727" cy="113.506" class="data-circle"/>
+                <circle cx="896.363" cy="319.220" class="data-circle"/>
+                <circle cx="980.0" cy="351.948" class="data-circle"/>
+            </g>
+            
             <path d="M60.0,394.026 L143.636,462.597 L227.27,443.896 L310.909,358.181 L394.545,362.857 L478.181,320.779 L561.818,368.701 L645.454,367.1428 L729.0909,358.181 L812.727,368.311 L896.363,455.584 L980.0,284.935 " stroke="#d95f02" fill="none"/>
-            <circle cx="60.0" cy="394.026" r="4" fill="#d95f02"/>
-            <circle cx="143.636" cy="462.597" r="4" fill="#d95f02"/>
-            <circle cx="227.272" cy="443.896" r="4" fill="#d95f02"/>
-            <circle cx="310.909" cy="358.181" r="4" fill="#d95f02"/>
-            <circle cx="394.545" cy="362.857" r="4" fill="#d95f02"/>
-            <circle cx="478.181" cy="320.780" r="4" fill="#d95f02"/>
-            <circle cx="561.818" cy="368.701" r="4" fill="#d95f02"/>
-            <circle cx="645.454" cy="367.143" r="4" fill="#d95f02"/>
-            <circle cx="729.090" cy="358.181" r="4" fill="#d95f02"/>
-            <circle cx="812.727" cy="368.311" r="4" fill="#d95f02"/>
-            <circle cx="896.363" cy="455.584" r="4" fill="#d95f02"/>
-            <circle cx="980.0" cy="284.935" r="4" fill="#d95f02"/>
+            <g fill = "#d95f02"><circle cx="60.0" cy="394.026" class = "data-circle"/>
+            <circle cx="143.636" cy="462.597" class = "data-circle"/>
+            <circle cx="227.272" cy="443.896" class = "data-circle"/>
+            <circle cx="310.909" cy="358.181" class = "data-circle"/>
+            <circle cx="394.545" cy="362.857" class = "data-circle"/>
+            <circle cx="478.181" cy="320.780" class = "data-circle"/>
+            <circle cx="561.818" cy="368.701" class = "data-circle"/>
+            <circle cx="645.454" cy="367.143" class = "data-circle"/>
+            <circle cx="729.090" cy="358.181" class = "data-circle"/>
+            <circle cx="812.727" cy="368.311" class = "data-circle"/>
+            <circle cx="896.363" cy="455.584" class = "data-circle"/>
+            <circle cx="980.0" cy="284.935" class = "data-circle"/>
+        </g>
             <path d="M60.0,445.844 L143.636,356.233 L227.272,409.610 L310.909,431.818 L394.545,365.194 L478.182,50.0 L561.818,320.0 L645.454,400.649 L729.091,379.610 L812.727,469.220 L896.363,381.948 L980.0,323.506 " stroke="#7570b3" fill="none"/>
-            <circle cx="60.0" cy="445.844" r="4" fill="#7570b3"/>
-            <circle cx="143.636" cy="356.233" r="4" fill="#7570b3"/>
-            <circle cx="227.272" cy="409.610" r="4" fill="#7570b3"/>
-            <circle cx="310.909" cy="431.818" r="4" fill="#7570b3"/>
-            <circle cx="394.545" cy="365.194" r="4" fill="#7570b3"/>
-            <circle cx="478.182" cy="50.0" r="4" fill="#7570b3"/>
-            <circle cx="561.818" cy="320.0" r="4" fill="#7570b3"/>
-            <circle cx="645.454" cy="400.649" r="4" fill="#7570b3"/>
-            <circle cx="729.091" cy="379.610" r="4" fill="#7570b3"/>
-            <circle cx="812.727" cy="469.220" r="4" fill="#7570b3"/>
-            <circle cx="896.363" cy="381.948" r="4" fill="#7570b3"/>
-            <circle cx="980.0" cy="323.506" r="4" fill="#7570b3"/>
+            <g fill="#7570b3"><circle cx="60.0" cy="445.844" class = "data-circle"/>
+            <circle cx="143.636" cy="356.233" class = "data-circle"/>
+            <circle cx="227.272" cy="409.610" class = "data-circle"/>
+            <circle cx="310.909" cy="431.818" class = "data-circle"/>
+            <circle cx="394.545" cy="365.194" class = "data-circle"/>
+            <circle cx="478.182" cy="50.0" class = "data-circle"/>
+            <circle cx="561.818" cy="320.0" class = "data-circle"/>
+            <circle cx="645.454" cy="400.649" class = "data-circle"/>
+            <circle cx="729.091" cy="379.610" class = "data-circle"/>
+            <circle cx="812.727" cy="469.220" class = "data-circle"/>
+            <circle cx="896.363" cy="381.948" class = "data-circle"/>
+            <circle cx="980.0" cy="323.506" class = "data-circle"/>
+        </g>
             <path d="M60.0,399.870 L143.636,393.636 L227.272,323.506 L310.909,365.974 L394.545,407.662 L478.182,395.974 L561.818,264.285 L645.454,438.831 L729.091,480.519 L812.727,209.740 L896.363,266.623 L980.0,216.753 " stroke="#e7298a" fill="none"/>
-            <circle cx="60.0" cy="399.870" r="4" fill="#e7298a"/>
-            <circle cx="143.636" cy="393.636" r="4" fill="#e7298a"/>
-            <circle cx="227.272" cy="323.506" r="4" fill="#e7298a"/>
-            <circle cx="310.909" cy="365.974" r="4" fill="#e7298a"/>
-            <circle cx="394.545" cy="407.662" r="4" fill="#e7298a"/>
-            <circle cx="478.182" cy="395.974" r="4" fill="#e7298a"/>
-            <circle cx="561.818" cy="264.285" r="4" fill="#e7298a"/>
-            <circle cx="645.454" cy="438.831" r="4" fill="#e7298a"/>
-            <circle cx="729.091" cy="480.519" r="4" fill="#e7298a"/>
-            <circle cx="812.727" cy="209.740" r="4" fill="#e7298a"/>
-            <circle cx="896.363" cy="266.623" r="4" fill="#e7298a"/>
-            <circle cx="980.0" cy="216.753" r="4" fill="#e7298a"/>
+           <g fill="#e7298a"> <circle cx="60.0" cy="399.870" class = "data-circle"/>
+            <circle cx="143.636" cy="393.636" class = "data-circle"/>
+            <circle cx="227.272" cy="323.506" class = "data-circle"/>
+            <circle cx="310.909" cy="365.974" class = "data-circle"/>
+            <circle cx="394.545" cy="407.662" class = "data-circle"/>
+            <circle cx="478.182" cy="395.974" class = "data-circle"/>
+            <circle cx="561.818" cy="264.285" class = "data-circle"/>
+            <circle cx="645.454" cy="438.831" class = "data-circle"/>
+            <circle cx="729.091" cy="480.519" class = "data-circle"/>
+            <circle cx="812.727" cy="209.740" class = "data-circle"/>
+            <circle cx="896.363" cy="266.623" class = "data-circle"/>
+            <circle cx="980.0" cy="216.753" class = "data-circle"/>
+        </g>
             <path d="M60.0,407.272 L143.636,487.922 L227.272,500.0 L310.909,500.0 L394.545,500.0 L478.182,360.909 L561.818,398.311 L645.454,428.311 L729.091,361.298 L812.727,428.701 L896.363,407.272 L980.0,344.545 " stroke="#66a61e" fill="none"/>
-            <circle cx="60.0" cy="407.272" r="4" fill="#66a61e"/>
-            <circle cx="143.636" cy="487.922" r="4" fill="#66a61e"/>
-            <circle cx="227.272" cy="500.0" r="4" fill="#66a61e"/>
-            <circle cx="310.909" cy="500.0" r="4" fill="#66a61e"/>
-            <circle cx="394.545" cy="500.0" r="4" fill="#66a61e"/>
-            <circle cx="478.182" cy="360.909" r="4" fill="#66a61e"/>
-            <circle cx="561.818" cy="398.311" r="4" fill="#66a61e"/>
-            <circle cx="645.454" cy="428.311" r="4" fill="#66a61e"/>
-            <circle cx="729.091" cy="361.298" r="4" fill="#66a61e"/>
-            <circle cx="812.727" cy="428.701" r="4" fill="#66a61e"/>
-            <circle cx="896.363" cy="407.272" r="4" fill="#66a61e"/>
-            <circle cx="980.0" cy="344.545" r="4" fill="#66a61e"/>
+            <g fill= "#66a61e"><circle cx="60.0" cy="407.272" class = "data-circle"/>
+            <circle cx="143.636" cy="487.922" class = "data-circle"/>
+            <circle cx="227.272" cy="500.0" class = "data-circle"/>
+            <circle cx="310.909" cy="500.0" class = "data-circle"/>
+            <circle cx="394.545" cy="500.0" class = "data-circle"/>
+            <circle cx="478.182" cy="360.909" class = "data-circle"/>
+            <circle cx="561.818" cy="398.311" class = "data-circle"/>
+            <circle cx="645.454" cy="428.311" class = "data-circle"/>
+            <circle cx="729.091" cy="361.298" class = "data-circle"/>
+            <circle cx="812.727" cy="428.701" class = "data-circle"/>
+            <circle cx="896.363" cy="407.272" class = "data-circle"/>
+            <circle cx="980.0" cy="344.545" class = "data-circle"/>
+        </g>
             <path d="M60.0,399.480 L143.636,357.012 L227.272,383.896 L310.909,378.052 L394.545,399.091 L478.182,440.0 L561.818,447.013 L645.454,452.857 L729.091,440.389 L812.727,257.662 L896.363,385.454 L980.0,385.454 " stroke="#e6ab02" fill="none"/>
-            <circle cx="60.0" cy="399.480" r="4" fill="#e6ab02"/>
-            <circle cx="143.636" cy="357.012" r="4" fill="#e6ab02"/>
-            <circle cx="227.272" cy="383.896" r="4" fill="#e6ab02"/>
-            <circle cx="310.909" cy="378.052" r="4" fill="#e6ab02"/>
-            <circle cx="394.545" cy="399.091" r="4" fill="#e6ab02"/>
-            <circle cx="478.182" cy="440.0" r="4" fill="#e6ab02"/>
-            <circle cx="561.818" cy="447.013" r="4" fill="#e6ab02"/>
-            <circle cx="645.454" cy="452.857" r="4" fill="#e6ab02"/>
-            <circle cx="729.091" cy="440.389" r="4" fill="#e6ab02"/>
-            <circle cx="812.727" cy="257.662" r="4" fill="#e6ab02"/>
-            <circle cx="896.363" cy="385.454" r="4" fill="#e6ab02"/>
-            <circle cx="980.0" cy="385.454" r="4" fill="#e6ab02"/>
+            <g fill ="#e6ab02"><circle cx="60.0" cy="399.480" class = "data-circle"/>
+            <circle cx="143.636" cy="357.012" class = "data-circle"/>
+            <circle cx="227.272" cy="383.896" class = "data-circle"/>
+            <circle cx="310.909" cy="378.052" class = "data-circle"/>
+            <circle cx="394.545" cy="399.091" class = "data-circle"/>
+            <circle cx="478.182" cy="440.0" class = "data-circle"/>
+            <circle cx="561.818" cy="447.013" class = "data-circle"/>
+            <circle cx="645.454" cy="452.857" class = "data-circle"/>
+            <circle cx="729.091" cy="440.389" class = "data-circle"/>
+            <circle cx="812.727" cy="257.662" class = "data-circle"/>
+            <circle cx="896.363" cy="385.454" class = "data-circle"/>
+            <circle cx="980.0" cy="385.454" class = "data-circle"/>
+        </g>
             <path d="M60.0,334.805 L143.636,412.727 L227.272,372.597 L310.909,256.883 L394.545,344.545 L478.182,303.246 L561.818,357.792 L645.454,380.0 L729.091,387.792 L812.727,300.909 L896.363,428.701 L980.0,423.246 " stroke="#a6761d" fill="none"/>
-            <circle cx="60.0" cy="334.805" r="4" fill="#a6761d"/>
-            <circle cx="143.636" cy="412.727" r="4" fill="#a6761d"/>
-            <circle cx="227.272" cy="372.597" r="4" fill="#a6761d"/>
-            <circle cx="310.909" cy="256.883" r="4" fill="#a6761d"/>
-            <circle cx="394.545" cy="344.545" r="4" fill="#a6761d"/>
-            <circle cx="478.182" cy="303.246" r="4" fill="#a6761d"/>
-            <circle cx="561.818" cy="357.792" r="4" fill="#a6761d"/>
-            <circle cx="645.454" cy="380.0" r="4" fill="#a6761d"/>
-            <circle cx="729.091" cy="387.792" r="4" fill="#a6761d"/>
-            <circle cx="812.727" cy="300.909" r="4" fill="#a6761d"/>
-            <circle cx="896.363" cy="428.701" r="4" fill="#a6761d"/>
-            <circle cx="980.0" cy="423.246" r="4" fill="#a6761d"/>
+            <g fill= "#a6761d"><circle cx="60.0" cy="334.805" class = "data-circle"/>
+            <circle cx="143.636" cy="412.727" class = "data-circle"/>
+            <circle cx="227.272" cy="372.597" class = "data-circle"/>
+            <circle cx="310.909" cy="256.883" class = "data-circle"/>
+            <circle cx="394.545" cy="344.545" class = "data-circle"/>
+            <circle cx="478.182" cy="303.246" class = "data-circle"/>
+            <circle cx="561.818" cy="357.792" class = "data-circle"/>
+            <circle cx="645.454" cy="380.0" class = "data-circle"/>
+            <circle cx="729.091" cy="387.792" class = "data-circle"/>
+            <circle cx="812.727" cy="300.909" class = "data-circle"/>
+            <circle cx="896.363" cy="428.701" class = "data-circle"/>
+            <circle cx="980.0" cy="423.246" class = "data-circle"/>
+        </g>
             <path d="M60.0,366.363 L143.636,351.168 L227.272,330.519 L310.909,293.896 L394.545,415.844 L478.182,384.675 L561.818,364.415 L645.454,288.441 L729.091,239.740 L812.727,299.740 L896.363,204.286 L980.0,500.0 " stroke="#666666" fill="none"/>
-            <circle cx="60.0" cy="366.363" r="4" fill="#666666"/>
-            <circle cx="143.636" cy="351.168" r="4" fill="#666666"/>
-            <circle cx="227.272" cy="330.519" r="4" fill="#666666"/>
-            <circle cx="310.909" cy="293.896" r="4" fill="#666666"/>
-            <circle cx="394.545" cy="415.844" r="4" fill="#666666"/>
-            <circle cx="478.182" cy="384.675" r="4" fill="#666666"/>
-            <circle cx="561.818" cy="364.415" r="4" fill="#666666"/>
-            <circle cx="645.454" cy="288.441" r="4" fill="#666666"/>
-            <circle cx="729.091" cy="239.740" r="4" fill="#666666"/>
-            <circle cx="812.727" cy="299.740" r="4" fill="#666666"/>
-            <circle cx="896.363" cy="204.286" r="4" fill="#666666"/>
-            <circle cx="980.0" cy="500.0" r="4" fill="#666666"/>
+           <g fill="#666666"> <circle cx="60.0" cy="366.363" class = "data-circle"/>
+            <circle cx="143.636" cy="351.168" class = "data-circle"/>
+            <circle cx="227.272" cy="330.519" class = "data-circle"/>
+            <circle cx="310.909" cy="293.896" class = "data-circle"/>
+            <circle cx="394.545" cy="415.844" class = "data-circle"/>
+            <circle cx="478.182" cy="384.675" class = "data-circle"/>
+            <circle cx="561.818" cy="364.415" class = "data-circle"/>
+            <circle cx="645.454" cy="288.441" class = "data-circle"/>
+            <circle cx="729.091" cy="239.740" class = "data-circle"/>
+            <circle cx="812.727" cy="299.740" class = "data-circle"/>
+            <circle cx="896.363" cy="204.286" class = "data-circle"/>
+            <circle cx="980.0" cy="500.0" class = "data-circle"/>
+        </g>
+        <g font-family="Arial" font-size="14">
             <rect x="880" y="30" width="15" height="15" fill="#1b9e77"/>
-            <text x="900" y="42" font-family="Arial" font-size="14">2011</text>
-            <rect x="880" y="50" width="15" height="15" fill="#d95f02"/>
-            <text x="900" y="62" font-family="Arial" font-size="14">2012</text>
-            <rect x="880" y="70" width="15" height="15" fill="#7570b3"/>
-            <text x="900" y="82" font-family="Arial" font-size="14">2013</text>
-            <rect x="880" y="90" width="15" height="15" fill="#e7298a"/>
-            <text x="900" y="102" font-family="Arial" font-size="14">2014</text>
-            <rect x="880" y="110" width="15" height="15" fill="#66a61e"/>
-            <text x="900" y="122" font-family="Arial" font-size="14">2015</text>
-            <rect x="880" y="130" width="15" height="15" fill="#e6ab02"/>
-            <text x="900" y="142" font-family="Arial" font-size="14">2016</text>
-            <rect x="880" y="150" width="15" height="15" fill="#a6761d"/>
-            <text x="900" y="162" font-family="Arial" font-size="14">2017</text>
-            <rect x="880" y="170" width="15" height="15" fill="#666666"/>
-            <text x="900" y="182" font-family="Arial" font-size="14">2018</text>
+            <text x="900" y="42">2011</text>
+            <rect x="880" y="60" width="15" height="15" fill="#d95f02"/>
+            <text x="900" y="72" >2012</text>
+            <rect x="880" y="80" width="15" height="15" fill="#7570b3"/>
+            <text x="900" y="92" >2013</text>
+            <rect x="880" y="100" width="15" height="15" fill="#e7298a"/>
+            <text x="900" y="112" >2014</text>
+            <rect x="880" y="120" width="15" height="15" fill="#66a61e"/>
+            <text x="900" y="132" >2015</text>
+            <rect x="880" y="140" width="15" height="15" fill="#e6ab02"/>
+            <text x="900" y="152" >2016</text>
+            <rect x="880" y="160" width="15" height="15" fill="#a6761d"/>
+            <text x="900" y="172" >2017</text>
+            <rect x="880" y="180" width="15" height="15" fill="#666666"/>
+            <text x="900" y="192" >2018</text>
+
+            
+        </g>
+            
         </svg>
     </body>
 </html>
