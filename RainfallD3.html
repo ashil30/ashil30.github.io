@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>D3 Rainfall Chart</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <h1>Rainfall Data Comparison: 2011-2018 Dorchester - Adams Village</h1>
+    <svg width="1000" height="600"></svg>
+
+    <script>
+        // Load the CSV data
+        d3.csv('/Users/ashilshah/Desktop/Rainfall/data.csv').then(function(data) {
+            // Parse the data to convert strings to numbers and extract year keys
+            const years = data.columns.slice(1).map(d => d.trim()); // Extract years from column headers
+            data.forEach(d => {
+                years.forEach(year => {
+                    d[year] = +d[year]; // Convert rainfall amounts to numbers
+                });
+            });
+
+            const svg = d3.select('svg'),
+                  margin = {top: 20, right: 150, bottom: 30, left: 50},
+                  width = svg.attr('width') - margin.left - margin.right,
+                  height = svg.attr('height') - margin.top - margin.bottom,
+                  g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+            const x = d3.scalePoint().range([0, width]).padding(0.5),
+                  y = d3.scaleLinear().rangeRound([height, 0]),
+                  color = d3.scaleOrdinal(d3.schemeCategory10);
+
+            x.domain(data.map(d => d['Month/Year']));
+            y.domain([0, d3.max(data, d => d3.max(years, key => d[key]))]);
+
+            g.append('g')
+             .attr('transform', 'translate(0,' + height + ')')
+             .call(d3.axisBottom(x));
+
+            g.append('g')
+             .call(d3.axisLeft(y));
+
+            // Line generator
+            const line = d3.line()
+                .x(d => x(d.month))
+                .y(d => y(d.value));
+
+            years.forEach((year, index) => {
+                const lineData = data.map(d => {
+                    return {month: d['Month/Year'], value: d[year]};
+                });
+
+                // Draw the line
+                g.append('path')
+                 .datum(lineData)
+                 .attr('fill', 'none')
+                 .attr('stroke', color(index))
+                 .attr('stroke-linejoin', 'round')
+                 .attr('stroke-linecap', 'round')
+                 .attr('stroke-width', 1.5)
+                 .attr('d', line);
+
+                // Add legend
+                svg.append('text')
+                   .attr('x', width + margin.left + 5)
+                   .attr('y', margin.top + index * 20)
+                   .attr('text-anchor', 'start')
+                   .style('fill', color(index))
+                   .text(year);
+            });
+        });
+    </script>
+</body>
+</html>
