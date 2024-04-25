@@ -120,7 +120,7 @@ let bars = g.selectAll(".bar")
                 tooltip.transition()
                        .duration(200)
                        .style("opacity", .9);
-                tooltip.html("$" + parseInt(d.TotalAnnualRate) + "<br/>" + d.Department)
+                tooltip.html(`Department: ${d.Department}<br>TotalAnnualRate: $${d.TotalAnnualRate.toLocaleString()}`)
                        .style("left", (event.pageX + 5) + "px")
                        .style("top", (event.pageY - 28) + "px");
             })
