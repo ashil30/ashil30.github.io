@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Journey Through Boston's Crime Landscape</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100i,300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> 
+ 
+  <script src="https://d3js.org/d3.v6.min.js"></script> 
+
+</head>
+<body>
+<header>
+  <div class="container text-center">
+    <h1>Uncovering Boston's Crime Stories</h1>
+  </div>
+</header>
+
+<section class="introduction">
+  <div class="container text-center">
+    <p>Imagine walking through the bustling streets of Boston, feeling the city's vibrant energy. Beneath this dynamic surface lies a complex tapestry of crime patterns that shape the lives of its residents. Our journey through Boston's crime data reveals intriguing stories and insights, guiding us to a deeper understanding of the city's safety and challenges. Let's embark on this exploration, uncovering the layers of crime trends, seasonal shifts, and geographical hotspots.</p>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="container">
+    <div class="timeline-item">
+      <div class="timeline-content js--fadeInLeft">
+        <div class="timeline-img-header"></div>
+        <h2>Unveiling the Past</h2>
+        <p>Trace the historical journey of crime in Boston, revealing how socio-economic factors and policies have shaped its landscape over the years.</p>
+        <a class="btn-more" href="javascript:void(0)" data-target="#card1">Read More</a>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-img"></div>
+      <div class="timeline-content js--fadeInRight">
+        <div class="timeline-img-header"></div>
+        <h2>The Rhythm of Crime</h2>
+        <p>Discover how crime patterns align with the city's weekly rhythms, revealing peaks during weekends and lulls during weekdays, intertwined with cultural events.</p>
+        <a class="btn-more" href="javascript:void(0)" data-target="#card2">Read More</a>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-img"></div>
+      <div class="timeline-content js--fadeInLeft">
+        <div class="timeline-img-header"></div>
+        <h2>The Clockwork of Crime</h2>
+        <p>Explore the hourly fluctuations of crime in Boston, pinpointing the most active times of the day and night to optimize law enforcement efforts.</p>
+        <a class="btn-more" href="javascript:void(0)" data-target="#card5">Read More</a>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-img"></div>
+      <div class="timeline-content js--fadeInRight">
+        <div class="timeline-img-header"></div>
+        <h2>The Seasons of Crime</h2>
+        <p>Examine the seasonal shifts in crime, understanding how different times of the year bring unique challenges and opportunities for maintaining public safety.</p>
+        <a class="btn-more" href="javascript:void(0)" data-target="#card3">Read More</a>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-img"></div>
+      <div class="timeline-content js--fadeInLeft">
+        <div class="timeline-img-header"></div>
+        <h2>Mapping the Crime</h2>
+        <p>Visualize crime hotspots across Boston's neighborhoods, highlighting areas that require focused attention and resources to improve safety and security.</p>
+        <a class="btn-more" href="javascript:void(0)" data-target="#card4">Read More</a>
+      </div>
+    </div>
+
+
+    
+    <div id="card1" class="timeline-card">
+      <div class="timeline-card-content">
+        <button class="close-card" onclick="closeCard('#card1')">&times;</button>
+        <h4>Unveiling the Past</h4>
+        <p>Our journey begins with a broad overview, charting the course of crime across the years. Picture a time-lapse of Boston's streets, capturing the ebb and flow of incidents. The yearly data unfolds like the pages of a historical book, each year telling its unique story. We see periods where crime surged, possibly reflecting socio-economic tensions or policy changes, and periods where it declined, perhaps due to effective interventions. This panoramic view sets the stage for a deeper dive into the intricacies of Boston's crime landscape</p>
+        <div id="yearlyCrimeChart" class="full-width"></div> 
+        <h4>Focusing the lens</h4>
+        <p>Shifting our focus to specific crime types, we delve into the worlds of personal investigations, drug-related offenses, and property crimes. Each type reveals different facets of the city's challenges. Personal confrontations unfold on the streets, uncovering tensions and interactions that impact everyday life. The underworld of drug offenses emerges, a persistent issue with deep social implications. Meanwhile, property crimes paint a picture of theft, vandalism, and other offenses that disturb the peace and security of Boston's residents. Understanding these specific types helps us develop targeted strategies to address each issue effectively.</p>
+        <div class="row">
+          <div id="investigatepersonCrimeChart" class="col-md-4 small-chart"></div> 
+          <div id="drugsCrimeChart" class="col-md-4 small-chart"></div> 
+          <div id="propertydamageCrimeChart" class="col-md-4 small-chart"></div> 
+        </div>
+      </div>
+    </div>
+
+    <div id="card2" class="timeline-card">
+      <div class="timeline-card-content">
+        <button class="close-card" onclick="closeCard('#card2')">&times;</button>
+        <h4>The Rhythm of Crime</h4>
+        <p>As we delve deeper, the rhythmic patterns of crime come to light, much like the changing pace of the city through its weeks and months. The data reveals how crime waxes and wanes through different periods, intertwined with the city's cultural events and routines. From quiet weekdays to bustling weekends, each time frame has its own story to tell. The city's pulse quickens on certain days, with weekends often being a hotspot for incidents, painting a vivid picture of how crime fits into the regular, cyclical life of Boston. These patterns help us anticipate and prepare for high-risk times, ensuring a proactive approach to public safety.</p>
+        <div id="monthlyCrimeChart" class="full-width"></div> 
+        
+        <div id="weeklyCrimeChart" class="full-width"></div> 
+      </div>
+    </div>
+
+    <div id="card3" class="timeline-card">
+      <div class="timeline-card-content">
+        <button class="close-card" onclick="closeCard('#card3')">&times;</button>
+        <h4>The Seasons of Crime</h4>
+        <p>Seasons change, and so does the nature of crime in Boston. This exploration takes us through the year's four seasons, each bringing its unique crime patterns. Winter might see a drop in street crimes, hidden under layers of snow, while summer's warmth could bring an increase in outdoor incidents. By anticipating these seasonal patterns, we can better allocate resources and plan community programs to mitigate predictable surges, enhancing the city's overall safety.</p>
+        <label for="yearDropdown">Select Year for Seasonal Crime Chart:</label>
+        <select id="yearDropdown" class="year-filter"></select> 
+        <div id="seasonalCrimeChart" class="full-width"></div> 
+      </div>
+    </div>
+
+    <div id="card4" class="timeline-card">
+        <div class="timeline-card-content">
+          <button class="close-card" onclick="closeCard('#card4')">&times;</button>
+          <h4>Mapping the Crime</h4>
+          <p>Our journey concludes with a geographical exploration, mapping crime across Boston's diverse neighborhoods. Imagine flying over the city, seeing hotspots glowing brighter where incidents cluster. This spatial perspective reveals the areas that need more attention and resources. Identifying these hotspots is crucial for deploying targeted interventions and ensuring every part of Boston receives the necessary support to enhance safety.</p>
+          <select id="yearFilter4" class="year-filter"></select>
+          <div id="svgContainer4" class="full-width"></div> 
+        </div>
+      </div>
+    
+      <div id="card5" class="timeline-card">
+        <div class="timeline-card-content">
+          <button class="close-card" onclick="closeCard('#card5')">&times;</button>
+          <h4>The Clockwork of Crime</h4>
+          <p>Imagine a day in Boston, from the quiet dawn to the bustling evening. The hourly data provides a snapshot of crime as it ticks through the hours, showing us the times when the city's underbelly is most active. Late-night hours might reveal a spike in incidents, perhaps tied to nightlife, while the early morning calm sees fewer disturbances. Understanding these hourly trends helps tailor law enforcement efforts, ensuring presence when and where it's most needed.</p>
+          <select id="yearFilter5" class="year-filter"></select> 
+          <div id="hourlyCrimeChart" class="full-width"></div> 
+        </div>
+      </div>
+     
+  </div>
+</section>
+<section class="introduction">
+    <div class="container text-center">
+        <p>As we weave through these detailed visualizations, we uncover the intricate stories behind Boston's crime patterns. From yearly trends to the minutiae of hourly data, each layer offers unique insights, helping us craft effective strategies for a safer city. By understanding when, where, and what types of crimes occur, we can make informed decisions, fostering a safer and more resilient Boston. This comprehensive analysis not only tells the story of crime in Boston but also guides us toward a future where safety and community well-being are paramount.</p>
+    </div>
+  </section>
+
+
+<div id="overlay"></div>
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js'></script>
+<script src="script.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.btn-more').on('click', function() {
+            var target = $(this).data('target');
+            $(target).show();
+            $('#overlay').show();
+        });
+
+        $('.close-card').on('click', function() {
+            $(this).closest('.timeline-card').hide();
+            $('#overlay').hide();
+        });
+
+        $('#overlay').on('click', function() {
+            $('.timeline-card').hide();
+            $('#overlay').hide();
+        });
+
+        $('#yearFilter4').on('change', function() {
+            var selectedYear = $(this).val();
+            $('#svgContainer4').empty().append('<object data="police_incidents_' + selectedYear + '.svg" type="image/svg+xml" width="100%" height="600px"></object>');
+        });
+
+        const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
+        years.forEach(year => {
+            $('#yearFilter4').append(new Option(year, year));
+            $('#yearFilter5').append(new Option(year, year)); 
+        });
+
+        $('#yearFilter4').val(2015).change();
+    });
+</script>
+</body>
+</html>
